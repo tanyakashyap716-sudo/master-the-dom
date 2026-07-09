@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master The DOM Tree</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <nav>MindInTech | DOM Explorer</nav>
+
+        <header>
+            <h1>Master the DOM Tree</h1>
+            <p>A visual guide to traversing elements and text nodes in JavaScript.</p>
+        </header>
+
+        <section>
+            <div>
+                <h3>HTML Nodes</h3>
+                <p>Everything in the DOM is a node, including attributes and invisible whitespace.</p>
+                <div>Targeted via.firstElementChild</div>
+            </div>
+            <div>
+                <h3>DOM Elements</h3>
+                <p>Elements are strictly HTML tags like divs, paragraphs, and sections.</p>
+                <div>Targeted via.nextElementChild</div>
+            </div>
+            <div>
+                <h3>JS Styling</h3>
+                <p>Directly manipulate layouts, colors, and typography using element.style.</p>
+                <div>Targeted via.lastElementChild</div>
+            </div>
+        </section>
+        <hr>
+        <footer>Built for beginners learning JavaScript DOM manipulation.</footer>
+    </div>
+
+    <script>
+        // (body)
+        document.body.style.backgroundColor = "#111827"
+        document.body.style.justifySelf = "center"
+
+        // ----------------------------------------------
+        // (target nav)
+        const selectNav = document.body.children[0]
+        let nav = selectNav.firstElementChild
+        nav.style.color = "white"
+        nav.style.fontWeight = "bold"
+        nav.style.height = "50px"
+        nav.style.width = "840px"
+        nav.style.backgroundColor = "#1E293B"
+        nav.style.alignContent = "center"
+        nav.style.paddingLeft = "20px"
+        nav.style.marginBottom = "20px"
+        nav.style.marginTop = "20px"
+        nav.style.borderRadius = "15px"
+        nav.style.borderLeftWidth = "4px"
+        nav.style.borderLeftStyle = "solid"
+        nav.style.borderLeftColor = "#3996f3"
+        // -------------------------------------------- 
+        // (target header h1)
+        let header = selectNav.children[1]
+        header.style.color = "#38BDF8"
+        header.style.fontWeight = "bold"
+        header.style.height = "230px"
+        header.style.width = "840px"
+        header.style.backgroundColor = "#1E293B"
+        header.style.alignContent = "center"
+        header.style.fontSize = "17px"
+        header.style.justifyItems = "center"
+        header.style.marginBottom = "20px"
+        header.style.borderRadius = "20px"
+        // ------------------------------------
+        // (target header2 p)
+        let header2 = header.lastElementChild
+        header2.style.color = "#94A3B8"
+        header2.style.fontWeight = "40"
+        header2.style.fontSize = "15px"
+        header2.style.paddingTop = "7px"
+        // ------------------------------------------
+        // (target section)
+        let section = selectNav.children[2]
+        section.style.display = "flex"
+        section.style.flexDirection = "row"
+        section.style.columnGap = "20px"
+        for (let i = 0; i < section.children.length; i++) {
+            let box = section.children[i]
+            box.style.height = "180px"
+            box.style.width = "270px"
+            box.style.backgroundColor = "#1E293B"
+            box.style.padding = "10px"
+            box.style.marginBottom = "20px"
+            box.style.borderRadius = "15px"
+            box.style.color = "#94A3B8"
+            box.style.fontSize = "15px"
+            box.style.borderTopWidth = "4px"
+            box.style.borderTopStyle = "solid"
+        }
+        // (target section2,3,4 p)
+        let section2 = section.children[0].firstElementChild
+        section2.style.color = "white"
+        section2.style.margin = "10px"
+        section2.style.fontSize = "20px"
+        // --------------------
+        let section3 = section.children[1].firstElementChild
+        section3.style.color = "white"
+        section3.style.margin = "10px"
+        section3.style.fontSize = "20px"
+        // --------------------------
+        let section4 = section.children[2].firstElementChild
+        section4.style.color = "white"
+        section4.style.margin = "10px"
+        section4.style.fontSize = "20px"
+        // ---------------------------------------------------
+        // (target section5,6,7 div)
+        let section5 = section.children[0].lastElementChild
+        section5.style.color = "#38BDF8"
+        section5.style.height = "30px"
+        section5.style.width = "200px"
+        section5.style.marginTop = "10px"
+        section5.style.fontSize = "small"
+        section5.style.fontWeight = "bold"
+        section5.style.backgroundColor = "#111827"
+        section5.style.alignContent = "center"
+        section5.style.textAlign = "center"
+        section5.style.borderRadius = "10px"
+        // ------------------
+        let section6 = section.children[1].lastElementChild
+        section6.style.color = "#5f57ee"
+        section6.style.height = "30px"
+        section6.style.width = "200px"
+        section6.style.marginTop = "30px"
+        section6.style.fontSize = "small"
+        section6.style.fontWeight = "bold"
+        section6.style.backgroundColor = "#111827"
+        section6.style.alignContent = "center"
+        section6.style.textAlign = "center"
+        section6.style.borderRadius = "10px"
+        // ---------------------------
+        let section7 = section.children[2].lastElementChild
+        section7.style.color = "#4ff39e"
+        section7.style.height = "30px"
+        section7.style.width = "200px"
+        section7.style.marginTop = "30px"
+        section7.style.fontSize = "small"
+        section7.style.fontWeight = "bold"
+        section7.style.backgroundColor = "#111827"
+        section7.style.alignContent = "center"
+        section7.style.textAlign = "center"
+        section7.style.borderRadius = "10px"
+        // -----------------------------
+        // (target section8,9,10 box)
+        let section8 = section.firstElementChild;
+        section8.style.borderTopColor = "#3996f3";
+
+        let section9 = section.lastElementChild;
+        section9.style.borderTopColor = "#4ff39e";
+
+        let section10 = section.children[1];
+        section10.style.borderTopColor = "#5f57ee";
+        // ----------------------------------------------
+        // (target footer)
+        let footer = selectNav.children[4]
+        footer.style.color = "#94A3B8"
+        footer.style.margin = "10px"
+        footer.style.justifySelf = "center"
+        footer.style.fontSize = "15px"
+        // ------------------------------------------------------------------------------------------------------
+    </script>
+</body>
+
+</html>
